@@ -37,7 +37,7 @@ class FirstCont extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: const [
                   Textname(name: 'Login', isclicked: true),
-                  Textname(name: 'Sign-Up', isclicked: false)
+                  Textname(name: 'Sign-Up')
                 ],
               )
             ],

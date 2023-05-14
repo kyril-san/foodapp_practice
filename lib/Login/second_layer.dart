@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:foodapp_practice/constants/constants.dart';
+import 'package:foodapp_practice/constants/input_field.dart';
 
 class SecondCont extends StatelessWidget {
   const SecondCont({super.key});
@@ -13,15 +16,16 @@ class SecondCont extends StatelessWidget {
       width: double.infinity,
       color: const Color.fromARGB(255, 242, 242, 242),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextFormField(
-            decoration: const InputDecoration(
-              enabledBorder: UnderlineInputBorder(),
-              label: Text('Email'),
-            ),
-            style: maintextblack,
-            autofocus: false,
-          )
+          const InputField(isobscure: false, title: 'Email Address'),
+          SizedBox(height: 52.5 * screenheight),
+          const InputField(isobscure: true, title: 'Password'),
+          SizedBox(height: 34 * screenheight),
+          Text(
+            'Forgot Password?',
+            style: maintext2,
+          ),
         ],
       ),
     );

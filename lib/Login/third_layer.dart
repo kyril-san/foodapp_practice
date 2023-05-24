@@ -9,18 +9,15 @@ class ThirdLayer extends StatelessWidget {
     final double screenwidth = MediaQuery.of(context).size.height / 414;
     final double screenheight = MediaQuery.of(context).size.height / 896;
     return GestureDetector(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: pagepadding * screenwidth),
-        child: Container(
-          height: 70 * screenheight,
-          width: screenwidth * 314,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30), color: secondarycolor),
-          child: Center(
-            child: Text(
-              'Login',
-              style: maintextwhite,
-            ),
+      child: Container(
+        height: 70 * screenheight,
+        width: screenwidth * 314,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30), color: secondarycolor),
+        child: Center(
+          child: Text(
+            'Login',
+            style: maintextwhite,
           ),
         ),
       ),

@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:foodapp_practice/Pages/Home_page.dart';
 import 'package:foodapp_practice/Pages/login_page.dart';
 import 'package:foodapp_practice/Pages/loading_page.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
         primaryColor: const Color.fromARGB(255, 182, 182, 182),
       ),
       home: const Login(),

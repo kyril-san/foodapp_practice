@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:foodapp_practice/Login/third_layer.dart';
 import 'package:foodapp_practice/constants/constants.dart';
 import 'package:foodapp_practice/constants/input_field.dart';
 
@@ -12,7 +11,9 @@ class SecondCont extends StatelessWidget {
     final double screenwidth = MediaQuery.of(context).size.height / 414;
     final double screenheight = MediaQuery.of(context).size.height / 896;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: pagepadding * screenwidth),
+      padding: EdgeInsets.symmetric(
+          horizontal: pagepadding * screenwidth,
+          vertical: pagepadding * screenheight),
       width: double.infinity,
       color: const Color.fromARGB(255, 242, 242, 242),
       child: Column(
@@ -26,6 +27,8 @@ class SecondCont extends StatelessWidget {
             'Forgot Password?',
             style: maintext2,
           ),
+          SizedBox(height: 68 * screenheight),
+          const ThirdLayer()
         ],
       ),
     );

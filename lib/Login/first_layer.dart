@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp_practice/Login/second_layer.dart';
 import 'package:foodapp_practice/constants/constants.dart';
-import 'package:foodapp_practice/constants/text_field.dart';
 
 class FirstCont extends StatefulWidget {
   const FirstCont({super.key});
@@ -54,14 +53,8 @@ class _FirstContState extends State<FirstCont> with TickerProviderStateMixin {
                   indicatorPadding:
                       EdgeInsets.symmetric(horizontal: 20 * screenwidth),
                   tabs: [
-                    Text(
-                      'Login',
-                      style: maintextblack,
-                    ),
-                    Text(
-                      'Sign-Up',
-                      style: maintextblack,
-                    )
+                    Text('Login', style: maintextblack),
+                    Text('Sign-Up', style: maintextblack)
                   ]),
             ],
           ),

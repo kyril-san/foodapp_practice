@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodapp_practice/constants/constants.dart';
 
 class Layer1 extends StatelessWidget {
   const Layer1({
@@ -11,7 +10,7 @@ class Layer1 extends StatelessWidget {
     final double screenwidth = MediaQuery.of(context).size.height / 414;
     // final double screenheight = MediaQuery.of(context).size.height / 896;
     return Padding(
-      padding: EdgeInsets.only(right: pagepadding * screenwidth),
+      padding: EdgeInsets.only(right: 20 * screenwidth),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:foodapp_practice/Pages/login_page.dart';
 import 'package:foodapp_practice/constants/constants.dart';
 
 class LoadingPage extends StatefulWidget {
@@ -8,7 +11,20 @@ class LoadingPage extends StatefulWidget {
   State<LoadingPage> createState() => _LoadingPageState();
 }
 
+void nextPage(BuildContext context) {
+  Navigator.pushReplacement(
+      context, MaterialPageRoute(builder: (context) => const Login()));
+}
+
 class _LoadingPageState extends State<LoadingPage> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 5), () {
+      nextPage(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height / 896;
@@ -40,7 +56,7 @@ class _LoadingPageState extends State<LoadingPage> {
               SizedBox(height: screenheight * 20),
               const CircularProgressIndicator(
                 color: secondarycolor,
-                value: 0.5,
+                // value: 0.5,
                 strokeWidth: 2,
               ),
             ]),

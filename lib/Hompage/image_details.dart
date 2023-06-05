@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp_practice/constants/constants.dart';
 
-class ImageHolder extends StatelessWidget {
-  const ImageHolder({super.key});
+class ImageHolder extends StatefulWidget {
+  final String image;
+  final String text;
+  const ImageHolder({super.key, required this.image, required this.text});
 
+  @override
+  State<ImageHolder> createState() => _ImageHolderState();
+}
+
+class _ImageHolderState extends State<ImageHolder> {
   @override
   Widget build(BuildContext context) {
     final double screenwidth = MediaQuery.of(context).size.height / 414;
@@ -32,8 +39,8 @@ class ImageHolder extends StatelessWidget {
                 color: Color.fromRGBO(0, 0, 0, 0.07),
                 blurRadius: 40)
           ]),
-          child: const CircleAvatar(
-            backgroundImage: AssetImage('assets/images/fruits.png'),
+          child: CircleAvatar(
+            backgroundImage: NetworkImage(widget.image),
             radius: 70,
           ),
         ),
@@ -41,7 +48,7 @@ class ImageHolder extends StatelessWidget {
           bottom: screenheight * 110,
           child: Center(
               child: Text(
-            'Veggie',
+            widget.text,
             style: maintextblack,
           )),
         ),

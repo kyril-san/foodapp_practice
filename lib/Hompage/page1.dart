@@ -3,6 +3,8 @@ import 'package:foodapp_practice/Hompage/image_details.dart';
 import 'package:foodapp_practice/Hompage/page1/layer1.dart';
 import 'package:foodapp_practice/Hompage/page1/search.dart';
 import 'package:foodapp_practice/Hompage/page1/text_out.dart';
+import 'package:foodapp_practice/Models/food_list.dart';
+import 'package:foodapp_practice/Models/get_food_list.dart';
 // ignore: depend_on_referenced_packages
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,6 +18,14 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> with TickerProviderStateMixin {
+  late Future<List<FoodList>> food;
+
+  @override
+  void initState() {
+    super.initState();
+    food = GetFoodList.getfoodlist();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double screenwidth = MediaQuery.of(context).size.height / 414;
@@ -71,11 +81,26 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
           ),
           Expanded(
             child: TabBarView(controller: _controller, children: [
-              ListView.builder(
-                  itemCount: 3,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return const ImageHolder();
+              FutureBuilder(
+                  future: food,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      final food = snapshot.data;
+                      return ListView.builder(
+                          itemCount: food!.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return ImageHolder(
+                              image: food[index].image,
+                              text: food[index].title.substring(0, 10),
+                            );
+                          });
+                    } else {
+                      if (snapshot.hasError) {
+                        return const Center(child: Text('Error'));
+                      }
+                    }
+                    return const Center(child: CircularProgressIndicator());
                   }),
               const Center(child: Text("fill2")),
               const Center(child: Text("fill3")),

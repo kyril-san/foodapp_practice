@@ -33,14 +33,14 @@ class _SecondContState extends State<SecondCont> {
             isobscure: false,
             title: 'Email Address',
             controller: email,
-            finalinput: finalemail,
+            finalinput: finalemail ?? '',
           ),
           SizedBox(height: 52.5 * screenheight),
           InputField(
             isobscure: true,
             title: 'Password',
             controller: password,
-            finalinput: finalpass,
+            finalinput: finalpass ??'',
           ),
           SizedBox(height: 34 * screenheight),
           Text(

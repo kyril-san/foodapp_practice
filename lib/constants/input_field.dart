@@ -7,7 +7,7 @@ class InputField extends StatefulWidget {
   final String title;
   final TextEditingController controller;
   final bool isobscure;
-  String? finalinput;
+  String finalinput;
   InputField({
     super.key,
     required this.title,

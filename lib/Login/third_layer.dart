@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:foodapp_practice/Models/login_class.dart';
 import 'package:foodapp_practice/constants/constants.dart';
@@ -17,7 +19,6 @@ class _ThirdLayerState extends State<ThirdLayer> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     requestlogin = LoginClass();
   }

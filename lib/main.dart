@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:foodapp_practice/Pages/Home_page.dart';
+import 'package:foodapp_practice/Pages/get_started_page.dart';
 import 'package:foodapp_practice/Pages/login_page.dart';
 import 'package:foodapp_practice/Pages/loading_page.dart';
 
@@ -16,13 +17,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const LoadingPage(),
+        '/get': (context) => const GetStarted(),
+        '/home': (context) => const Homepage(),
+      },
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.grey,
         primaryColor: const Color.fromARGB(255, 182, 182, 182),
       ),
-      home: const Login(),
+      // home: const GetStarted(),
     );
   }
 }

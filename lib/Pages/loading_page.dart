@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:foodapp_practice/Pages/login_page.dart';
 import 'package:foodapp_practice/constants/constants.dart';
 
 class LoadingPage extends StatefulWidget {
@@ -12,15 +11,16 @@ class LoadingPage extends StatefulWidget {
 }
 
 void nextPage(BuildContext context) {
-  Navigator.pushReplacement(
-      context, MaterialPageRoute(builder: (context) => const Login()));
+  // Navigator.pushReplacement(
+  //     context, MaterialPageRoute(builder: (context) => const Login()));
+  Navigator.pushReplacementNamed(context, '/get');
 }
 
 class _LoadingPageState extends State<LoadingPage> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 10), () {
       nextPage(context);
     });
   }

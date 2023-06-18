@@ -2,19 +2,23 @@
 
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:foodapp_practice/Models/login_class.dart';
+import 'package:foodapp_practice/Pages/home_page.dart';
 import 'package:http/http.dart' as http;
 
 class ApiLogin {
-  static Future<void> apilogin(LoginClass loginClass) async {
-    final url = Uri.parse('http://wordsdrip.onrender.com/login');
+  static Future<bool> apilogin(LoginClass loginClass) async {
+    final url = Uri.parse('https://wordsdrip.onrender.com/login');
     final headers = {'Content-Type': 'application/json'};
     final body = loginClass.toJson();
-    final response = await http.post(url, headers: headers, body: body);
+    final response =
+        await http.post(url, headers: headers, body: jsonEncode(body));
     if (response.statusCode == 200) {
+      bool success = true;
       print('success');
       print(body);
-      return jsonDecode(response.body);
+      return success;
     } else {
       print('error:${response.reasonPhrase}');
       throw Exception('failed: ${response.reasonPhrase}');

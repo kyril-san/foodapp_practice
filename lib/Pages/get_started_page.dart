@@ -106,7 +106,7 @@ class GetStarted extends StatelessWidget {
                         bottom: size.height * 0.05,
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.pushReplacementNamed(context, '/home');
+                            Navigator.pushReplacementNamed(context, '/login');
                           },
                           child: Container(
                               margin:

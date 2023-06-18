@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const LoadingPage(),
         '/get': (context) => const GetStarted(),
         '/home': (context) => const Homepage(),
+        '/login': (context) => const Login(),
       },
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
         primaryColor: const Color.fromARGB(255, 182, 182, 182),
       ),
-      // home: const GetStarted(),
+      // home: const Login(),
     );
   }
 }

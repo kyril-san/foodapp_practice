@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp_practice/Login/third_layer.dart';
+import 'package:foodapp_practice/Models/api_login.dart';
+import 'package:foodapp_practice/Models/login_class.dart';
 import 'package:foodapp_practice/constants/constants.dart';
 import 'package:foodapp_practice/constants/input_field.dart';
 
@@ -15,7 +17,21 @@ TextEditingController password = TextEditingController();
 String? finalemail;
 String? finalpass;
 
+void nextpage(BuildContext context) {
+  Navigator.pushReplacementNamed(context, '/home');
+}
+
 class _SecondContState extends State<SecondCont> {
+  _actionbutton() async {
+    finalemail = email.text;
+    finalpass = password.text;
+    final response = await ApiLogin.apilogin(
+        LoginClass(email: finalemail, password: finalpass));
+    if (response == true) {
+      nextpage(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final double screenwidth = MediaQuery.of(context).size.height / 414;
@@ -33,14 +49,12 @@ class _SecondContState extends State<SecondCont> {
             isobscure: false,
             title: 'Email Address',
             controller: email,
-            finalinput: finalemail ?? '',
           ),
           SizedBox(height: 52.5 * screenheight),
           InputField(
             isobscure: true,
             title: 'Password',
             controller: password,
-            finalinput: finalpass ??'',
           ),
           SizedBox(height: 34 * screenheight),
           Text(
@@ -49,8 +63,7 @@ class _SecondContState extends State<SecondCont> {
           ),
           SizedBox(height: 68 * screenheight),
           ThirdLayer(
-            finalemail: finalemail,
-            finalpassword: finalpass,
+            ontap: () => _actionbutton(),
           )
         ],
       ),

@@ -2,9 +2,7 @@
 
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:foodapp_practice/Models/login_class.dart';
-import 'package:foodapp_practice/Pages/home_page.dart';
 import 'package:http/http.dart' as http;
 
 class ApiLogin {
